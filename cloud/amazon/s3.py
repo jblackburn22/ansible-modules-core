@@ -106,7 +106,7 @@ EXAMPLES = '''
 # Delete a bucket and all contents
 - s3: bucket=mybucket mode=delete
 
-# GET an object but dont download if the file checksums  match 
+# GET an object but dont download if the file checksums  match
 - s3: bucket=mybucket object=/my/desired/key.txt dest=/usr/local/myfile.txt mode=get overwrite=different
 '''
 
@@ -295,10 +295,10 @@ def main():
     overwrite = module.params.get('overwrite')
     metadata = module.params.get('metadata')
 
-    if overwrite not in  ['always', 'never', 'different']: 
-        if module.boolean(overwrite): 
-            overwrite = 'always' 
-        else: 
+    if overwrite not in  ['always', 'never', 'different']:
+        if module.boolean(overwrite):
+            overwrite = 'always'
+        else:
             overwrite='never'
 
     region, ec2_url, aws_connect_kwargs = get_aws_connection_info(module)
